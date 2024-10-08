@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #D5F1F6;
+            font-size: 1rem;
+        }
+        
+        .container {
+            display: inline-flex;
+        }
+        
+        .result-container {
+            padding-top: 30px;
+            width: 50%;
+            }
+
+        .image-container {
+            display: inline-block;
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .image-container img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        .image-container .position {
+            position: absolute;
+            top: 55%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            font-size: 21px;
+            font-weight: bold;
+            color: black;
+            text-shadow: 2px 2px 4px white;
+        }
+
+        label{
+            margin: 0 20px;
+            display: inline-block;
+            color: #3F7F8D;
+            font-size: 1rem;
+        }
+        select {
+            margin-top: 3px;
+            display: inline-block;
+            color: #3F7F8D;
+            padding: 10px 20px;
+            border-radius: 25px;
+            width: 100px;
+            font-size: 1rem;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            padding-top: 180px;
+        }
+        .select-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+            .result-container, .form-container, .button-container {
+                width: 100%;
+            }
+        
+            .image-container .position {
+                font-size: 16px;
+            }
+        
+            .select-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .select-group label,
+            .select-group select {
+                width: 100%;
+                text-align: left;
+            }
+
+            .form-container {
+                flex-direction: column;
+                padding-top: 20px;
+            }
+
+            .select-group {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 719px) {
+            .container {
+                flex-direction: column;
+            }
+            .result-container, .form-container, .button-container {
+                width: 100%;
+            }
+        
+            .image-container .position {
+                font-size: 16px;
+            }
+
+            .select-group label,
+            .select-group select {
+                width: 100%;
+                text-align: left;
+            }
+
+            .form-container {
+                padding-top: 20px;
+            }
+        }
+        
+        h1 {
+            color: #7CBBC6;
+        }
+        button {
+            margin: 10px 0;
+            text-align: center;
+            display: block;
+            padding: 10px 20px;
+            background-color: #5699A7;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border-color: #5699A7;
+            transition: background-color 0.3s;
+            width: 150px;
+            font-size: 1rem;
+        }
+        button:hover {
+            margin: 10px 0;
+            text-align: center;
+            display: block;
+            padding: 10px 20px;
+            background-color: #3F7F8D;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border-color: #3F7F8D;
+            transition: background-color 0.3s;
+            width: 150px
+            font-size: 1rem;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор личности</h1>
+    <div class="container">
+    <div class="result-container">
+    <div id="result-container">
+        <div class="image-container">
+            <img src="1-1.png" alt="Position 1">
+            <div id="position1" class="position"></div>
+        </div>
+        <div class="image-container">
+            <img src="2-2.png" alt="Position 2">
+            <div id="position2" class="position"></div>
+        </div>
+        <div class="image-container">
+            <img src="9-9.png" alt="Position 9">
+            <div id="position9" class="position"></div>
+        </div>
+    </div>
+    <div id="result-container">
+        <div class="image-container">
+            <img src="3-3.png" alt="Position 3">
+            <div id="position3" class="position"></div>
+        </div>
+        <div class="image-container">
+            <img src="8-8.png" alt="Position 8">
+            <div id="position8" class="position"></div>
+        </div>
+    </div>
+    <div id="result-container">
+        <div class="image-container">
+            <img src="4-4.png" alt="Position 4">
+            <div id="position4" class="position"></div>
+        </div>
+        <div class="image-container">
+            <img src="5-5.png" alt="Position 5">
+            <div id="position5" class="position"></div>
+        </div>
+        <div class="image-container">
+            <img src="10-10.png" alt="Position 10">
+            <div id="position10" class="position"></div>
+        </div>
+    </div>
+    <div id="result-container">
+        <div class="image-container"></div>
+        <div class="image-container" style="margin-left: 100px">
+            <img src="7-7.png" alt="Position 7">
+            <div id="position7" class="position"></div>
+        </div>
+    </div>
+    <div id="result-container">
+        <div class="image-container">
+            <img src="6-6.png" alt="Position 6">
+            <div id="position6" class="position"></div>
+        </div>
+    </div>
+    </div>
+    <div class="form-container">
+        <div class="select-group">
+            <div>
+                <label for="day">День</label>
+                <select id="day">
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+            <div>
+                <label for="month">Месяц</label>
+                <select id="month">
+                    <script>
+                        for (let i = 1; i <= 12; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+            <div>
+                <label for="year">Год</label>
+                <select id="year">
+                    <script>
+                        for (let i = 1900; i <= 2024; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+        </div>
+        <div class="button-container">
+            <button onclick="calculate()">Рассчитать</button>
+        </div>
+    </div>
+    </div>
+    <script>
+        function calculate() {
+            const day = parseInt(document.getElementById("day").value);
+            const month = parseInt(document.getElementById("month").value);
+            const year = parseInt(document.getElementById("year").value);
+            const reduce = (num) => num > 22 ? num - 22 : num;
+            function toRoman(num) {
+                const roman = {
+                    M: 1000,
+                    CM: 900,
+                    D: 500,
+                    CD: 400,
+                    C: 100,
+                    XC: 90,
+                    L: 50,
+                    XL: 40,
+                    X: 10,
+                    IX: 9,
+                    V: 5,
+                    IV: 4,
+                    I: 1
+                };
+                let str = '';
+                for (let i in roman) {
+                    while (num >= roman[i]) {
+                        str += i;
+                        num -= roman[i];
+                    }
+                }
+                return str;
+            }
+            const position9 = reduce(
+                String(year)
+                .split('')
+                .map(Number)
+                .reduce((a, b) => a + b, 0)
+            );
+            const position1 = day;
+            const position2 = month;
+            const position8 = reduce(position2 + position9);
+            const position3 = reduce(position1 + position2);
+            const position4 = reduce(position2 + position3);
+            const position5 = reduce(position3 + position8);
+            const position6 = reduce(position2 + position5);
+            const position7 = reduce(position1 + position8);
+            const position10 = reduce(position2 + position8);
+            document.getElementById("position1").textContent = toRoman(position1);
+            document.getElementById("position2").textContent = toRoman(position2);
+            document.getElementById("position3").textContent = toRoman(position3);
+            document.getElementById("position4").textContent = toRoman(position4);
+            document.getElementById("position5").textContent = toRoman(position5);
+            document.getElementById("position6").textContent = toRoman(position6);
+            document.getElementById("position7").textContent = toRoman(position7);
+            document.getElementById("position8").textContent = toRoman(position8);
+            document.getElementById("position9").textContent = toRoman(position9);
+            document.getElementById("position10").textContent = toRoman(position10);
+        }
+    </script>
+</body>
+</html>
